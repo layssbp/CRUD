@@ -18,7 +18,21 @@
   </thead>
   <tbody>
     @foreach($produtos as $p)
-        {{--e agora??--}}
+        <tr>
+          <td>{{$p->id}}</td>
+          <td>{{$p->nome}}</td>
+          <td>{{$p->descricao}}</td>
+          <td>{{$p->imagem}}</td>
+          <td>{{$p->preco}}</td>
+          <td>{{$p->quantidade}}</td>
+          <td>{{$p->id_categoria}}</td>
+          <td>
+            <a href="/produtos/editar/{{$p->id}}" class="btn btn-primary">Editar</a>
+        <a href="/produtos/apagar/{{$p->id}}" class="btn btn-danger">Apagar</a>
+          </td>
+        </tr>
+
+        
     @endforeach
   </tbody>
 </table>

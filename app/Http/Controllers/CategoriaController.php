@@ -7,25 +7,15 @@ use App\Categoria;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $categorias = Categoria::all();
-        return view('categorias', compact('categorias'));
+        return view('/categorias', compact('categorias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('categoria-nova');
+        return view('/categoria-nova');
     }
 
     public function store(Request $request)
@@ -33,7 +23,7 @@ class CategoriaController extends Controller
         $categoria = new Categoria();
         $categoria->nome = $request->input('nomeCategoria');
         $categoria->save();
-        return redirect('/categorias');
+        return redirect('/categorias');       
     }
 
     public function show($id)
@@ -41,7 +31,6 @@ class CategoriaController extends Controller
         //
     }
 
-    
     public function edit($id)
     {
         $categoria = Categoria::find($id);
@@ -53,13 +42,24 @@ class CategoriaController extends Controller
         $categoria = Categoria::find($id);
         $categoria->nome = $request->input('nomeCategoria');
         $categoria->save();
-        return redirect('/categorias');
+        return redirect('/categorias'); 
     }
 
     public function destroy($id)
     {
         $categoria = Categoria::find($id);
         $categoria->delete();
+        return redirect('/categorias'); 
+    }
+
+    public function indexWithTrashed(){
+        $categorias = Categoria::onlyTrashed()->get();
+        return view('categoria-restaurar', compact('categorias'));
+    }
+
+    public function restore($id){
+        $categoria = Categoria::onlyTrashed()->find($id);
+        $categoria->restore();
         return redirect('/categorias');
     }
 }
