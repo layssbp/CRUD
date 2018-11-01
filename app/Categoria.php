@@ -9,4 +9,9 @@ class Categoria extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function produtos(){
+        return $this->hasMany('App\Produto');
+    }
+
 }

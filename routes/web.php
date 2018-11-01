@@ -32,5 +32,11 @@ Route::get('/produtos/novo', 'ProdutoController@create');
 Route::get('/produtos/editar/{id}', 'ProdutoController@edit');
 Route::get('/produtos/apagar/{id}', 'ProdutoController@destroy');
 Route::post('/produtos', 'ProdutoController@store');
+Route::post('/produtos/editar/{id}','ProdutoController@update');
 
-
+Route::get('/clientes', 'ClienteController@index');
+Route::get('clientes/novo', 'ClienteController@create');
+Route::get('/clientes/editar/{id}', 'ClienteController@edit');
+//Route::get('/clientes/apagar/{id}', 'ClienteController@destroy');
+Route::post('/clientes', 'ClienteController@store');
+Route::post('/clientes/editar/{id}','ClienteController@update');

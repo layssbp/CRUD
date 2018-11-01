@@ -48,6 +48,17 @@
                         </li>
                     </ul>
                 </li>
+                <li @if($current == "clientes") class = "active" @endif >
+                    <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Clientes</a>
+                    <ul class="collapse list-unstyled" id="clientesSubmenu">
+                        <li>
+                            <a href="/clientes/novo">Novo</a>
+                        </li>
+                        <li>
+                            <a href="/clientes/">Listar</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             
         </nav>

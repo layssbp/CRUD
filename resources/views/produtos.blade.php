@@ -22,17 +22,15 @@
           <td>{{$p->id}}</td>
           <td>{{$p->nome}}</td>
           <td>{{$p->descricao}}</td>
-          <td>{{$p->imagem}}</td>
+          <td><img width=25% src="../storage/{{$p->imagem}}"/></td>
           <td>{{$p->preco}}</td>
           <td>{{$p->quantidade}}</td>
-          <td>{{$p->id_categoria}}</td>
+          <td>{{$p->categoria["nome"]}}</td>
           <td>
-            <a href="/produtos/editar/{{$p->id}}" class="btn btn-primary">Editar</a>
-        <a href="/produtos/apagar/{{$p->id}}" class="btn btn-danger">Apagar</a>
+            <a class = "btn btn-primary" href="/produtos/editar/{{$p->id}}">Editar</a>
+            <a class = "btn btn-danger" href="/produtos/apagar/{{$p->id}}">Excluir</a>
           </td>
-        </tr>
-
-        
+        </tr> 
     @endforeach
   </tbody>
 </table>

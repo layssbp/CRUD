@@ -26,9 +26,15 @@ class CategoriaController extends Controller
         return redirect('/categorias');       
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-        //
+        
     }
 
     public function edit($id)
@@ -60,6 +66,7 @@ class CategoriaController extends Controller
     public function restore($id){
         $categoria = Categoria::onlyTrashed()->find($id);
         $categoria->restore();
-        return redirect('/categorias');
+        return redirect ('/categorias');
     }
+
 }
